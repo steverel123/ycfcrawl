@@ -108,3 +108,15 @@ output/*/index.html
 docs/_build
 public/
 web/
+.supabase_upload_log.txt
+
+# Yacht crawl local artifacts (do not push)
+yachts/
+scrape_full.log
+watermark-test/
+.cursor/
+jferments-watermark-remover/venv/
+jferments-watermark-remover/input/
+jferments-watermark-remover/jferments-input/
+jferments-watermark-remover/output/
+jferments-watermark-remover/*.pt

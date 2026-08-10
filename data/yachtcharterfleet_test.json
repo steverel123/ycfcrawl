@@ -1,0 +1,71 @@
+{
+  "source": "https://www.yachtcharterfleet.com/charter/superyachts-for-charter",
+  "total_yachts": 3,
+  "pages_scraped": 1,
+  "yachts": [
+    {
+      "id": "46799",
+      "name": "Black Pearl",
+      "slug": "black-pearl",
+      "url": "https://www.yachtcharterfleet.com/luxury-charter-yacht-46799/black-pearl.htm",
+      "length": "105m",
+      "builder": "Oceanco",
+      "year_built": "2018",
+      "guests": 12,
+      "cabins": null,
+      "price": {
+        "display": "from",
+        "amount_usd": null,
+        "poa": false
+      },
+      "images": [
+        "https://image.yachtcharterfleet.com/w696/h352/qh/ca/ow-1,d-1/k219408a4/vessel/resource/2930572/black-pearl.jpg",
+        "https://image.yachtcharterfleet.com/w175/h175/qh/ca/od-1/k32b7ea5d/vessel/resource/2930558/black-pearl.jpg",
+        "https://image.yachtcharterfleet.com/w175/h175/qh/ca/od-1/kad5e2dd2/vessel/resource/3310285/black-pearl.jpg",
+        "https://image.yachtcharterfleet.com/w175/h175/qh/ca/od-1/k0796cb1d/vessel/resource/2930545/black-pearl.jpg",
+        "https://image.yachtcharterfleet.com/w175/h175/qh/ca/od-1/k0000b045/vessel/resource/3310279/black-pearl.jpg"
+      ]
+    },
+    {
+      "id": "48609",
+      "name": "IJE",
+      "slug": "ije",
+      "url": "https://www.yachtcharterfleet.com/luxury-charter-yacht-48609/ije.htm",
+      "length": "108m",
+      "builder": "Benetti",
+      "year_built": null,
+      "guests": 12,
+      "cabins": null,
+      "price": {
+        "display": null,
+        "amount_usd": null,
+        "poa": false
+      },
+      "images": [
+        "https://image.yachtcharterfleet.com/w340/h203/qh/ca/od-1/kd44bae44/vessel/resource/1449871/ije.jpg",
+        "https://image.yachtcharterfleet.com/w340/h203/qh/ca/od-1/k88f3dc89/vessel/resource/1771071/ije.jpg",
+        "https://image.yachtcharterfleet.com/w340/h203/qh/ca/od-1/k725ba9a9/vessel/resource/1771095/ije.jpg"
+      ]
+    },
+    {
+      "id": "49582",
+      "name": "Mar",
+      "slug": "mar",
+      "url": "https://www.yachtcharterfleet.com/luxury-charter-yacht-49582/mar.htm",
+      "length": "107m",
+      "builder": "Benetti",
+      "year_built": null,
+      "guests": 12,
+      "cabins": null,
+      "price": {
+        "display": null,
+        "amount_usd": null,
+        "poa": false
+      },
+      "images": [
+        "https://image.yachtcharterfleet.com/w340/h203/qh/cs38-5-1408-843/od-1/k6f9494df/vessel/resource/3232590/mar.jpg",
+        "https://image.yachtcharterfleet.com/w340/h203/qh/ca/od-1/k16f232a6/vessel/resource/3232596/mar.jpg"
+      ]
+    }
+  ]
+}
