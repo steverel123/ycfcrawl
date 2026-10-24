@@ -95,7 +95,7 @@ sync_batch() {
   local lines attempt max_attempts=3
   lines="$(wc -l <"$list_file" | tr -d ' ')"
   for attempt in $(seq 1 "$max_attempts"); do
-    if rsync "${RSYNC_OPTS[@]}" --files-from="$list_file" -e "${RSYNC_SSH_PARALLEL:-$RSYNC_SSH}" \
+    if rsync "${RSYNC_UP_OPTS[@]}" --files-from="$list_file" -e "${RSYNC_SSH_PARALLEL:-$RSYNC_SSH}" \
       "$REPO_ROOT/" "$SSH_TARGET:$REMOTE_ROOT/"; then
       echo "ok $batch_id ($lines files)"
       return 0
@@ -127,15 +127,13 @@ fi
 
 echo "==> All $yacht_total yacht folders uploaded ($batch_total batches)"
 
-if [[ -f "$REPO_ROOT/public/yachts/.processing_log.txt" ]]; then
-  echo "==> Uploading checkpoint log"
-  scp "${SCP_OPTS[@]}" \
-    "$REPO_ROOT/public/yachts/.processing_log.txt" \
-    "$SSH_TARGET:$REMOTE_ROOT/public/yachts/.processing_log.txt"
-fi
-
-echo "==> Uploading runpod scripts"
-rsync "${RSYNC_OPTS[@]}" -e "$RSYNC_SSH" \
+echo "==> Uploading scripts"
+run_remote "mkdir -p '$REMOTE_ROOT/scripts/local_watermark'"
+rsync "${RSYNC_UP_OPTS[@]}" -e "$RSYNC_SSH" \
   "$REPO_ROOT/scripts/runpod/" "$SSH_TARGET:$REMOTE_ROOT/scripts/runpod/"
+rsync "${RSYNC_UP_OPTS[@]}" -e "$RSYNC_SSH" --exclude __pycache__ \
+  "$REPO_ROOT/scripts/local_watermark/" "$SSH_TARGET:$REMOTE_ROOT/scripts/local_watermark/"
+rsync "${RSYNC_UP_OPTS[@]}" -e "$RSYNC_SSH" \
+  "$REPO_ROOT/requirements-local-watermark.txt" "$SSH_TARGET:$REMOTE_ROOT/"
 
 echo "Upload complete."

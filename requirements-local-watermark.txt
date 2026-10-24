@@ -1,0 +1,10 @@
+# Local YOLO + LaMa watermark removal (M1-friendly)
+# simple-lama-inpainting pins pillow<10 and numpy<2
+torch>=2.1.0
+torchvision>=0.16.0
+ultralytics>=8.2.0
+simple-lama-inpainting>=0.1.2
+opencv-python>=4.8.0.74,<5
+numpy>=1.24.3,<2
+Pillow>=9.5.0,<10
+piexif>=1.1.3

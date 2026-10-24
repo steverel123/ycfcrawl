@@ -12,7 +12,7 @@ init_transfer_ssh() {
     -p "$RUNPOD_TRANSFER_PORT"
     -o StrictHostKeyChecking=accept-new
     -o ControlMaster=auto
-    -o "ControlPath=${RUNPOD_SSH_CONTROL}/%r@%h:%p"
+    -o "ControlPath=${RUNPOD_SSH_CONTROL}/%r@%h:%p-$$"
     -o ControlPersist=600
     -o Compression=no
   )
@@ -26,6 +26,9 @@ init_transfer_ssh() {
 
   # Network FS on RunPod rejects chown; skip perms. No -z: JPEGs do not compress.
   RSYNC_OPTS=( -a --no-perms --no-owner --no-group --omit-dir-times )
+  # Some network volumes also reject setting file mtimes, so uploads skip times
+  # and resume by comparing sizes.
+  RSYNC_UP_OPTS=( -rl --no-perms --no-owner --no-group --no-times --size-only )
   RSYNC_SSH="ssh ${SSH_OPTS[*]}"
   # Parallel uploads: no multiplex (RunPod rejects many sessions on one control socket).
   RSYNC_SSH_PARALLEL="ssh -i $SSH_KEY -p $RUNPOD_TRANSFER_PORT -o StrictHostKeyChecking=accept-new -o Compression=no -o ControlMaster=no"

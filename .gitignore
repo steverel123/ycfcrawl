@@ -120,3 +120,5 @@ jferments-watermark-remover/input/
 jferments-watermark-remover/jferments-input/
 jferments-watermark-remover/output/
 jferments-watermark-remover/*.pt
+clean-yachts/
+*.log

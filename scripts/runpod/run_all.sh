@@ -33,9 +33,8 @@ set -euo pipefail
 export YCFCrawl_ROOT='$REMOTE_ROOT'
 export WM_CONF='${WM_CONF:-0.08}'
 export WM_DILATE='${WM_DILATE:-35}'
-chmod +x '$REMOTE_ROOT/scripts/runpod/'*.sh
-'$REMOTE_ROOT/scripts/runpod/bootstrap.sh'
-'$REMOTE_ROOT/scripts/runpod/start_batch.sh'
+bash '$REMOTE_ROOT/scripts/runpod/bootstrap.sh'
+bash '$REMOTE_ROOT/scripts/runpod/start_batch.sh'
 REMOTE
 
 echo ""
@@ -43,5 +42,5 @@ echo "Batch is running on RunPod. Monitor:"
 echo "  ssh -i $SSH_KEY -p $RUNPOD_TRANSFER_PORT $TRANSFER_TARGET -t tmux attach -t watermark"
 echo "  ssh -i $SSH_KEY -p $RUNPOD_TRANSFER_PORT $TRANSFER_TARGET tail -f $REMOTE_ROOT/watermark_remove.log"
 echo ""
-echo "When done, download results:"
-echo "  source scripts/runpod/env.sh && ./scripts/runpod/sync_down.sh"
+echo "==> Downloading results as they finish (Ctrl-C to stop; rerun sync_down.sh --watch to resume)"
+"$REPO_ROOT/scripts/runpod/sync_down.sh" --watch

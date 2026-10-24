@@ -47,7 +47,7 @@ if [[ "${SYNC_VERBOSE:-}" == "1" ]]; then
 fi
 
 if command -v rsync >/dev/null 2>&1; then
-  rsync "${RSYNC_OPTS[@]}" "${RSYNC_EXTRA[@]}" \
+  rsync "${RSYNC_UP_OPTS[@]}" "${RSYNC_EXTRA[@]}" \
     -e "$RSYNC_SSH" \
     "$REPO_ROOT/yachts/" "$SSH_TARGET:$REMOTE_ROOT/yachts/"
 else
@@ -64,7 +64,7 @@ if [[ -f "$REPO_ROOT/public/yachts/.processing_log.txt" ]]; then
 fi
 
 echo "==> Uploading runpod scripts"
-rsync "${RSYNC_OPTS[@]}" -e "$RSYNC_SSH" \
+rsync "${RSYNC_UP_OPTS[@]}" -e "$RSYNC_SSH" \
   "$REPO_ROOT/scripts/runpod/" "$SSH_TARGET:$REMOTE_ROOT/scripts/runpod/"
 
 echo "Upload complete."
